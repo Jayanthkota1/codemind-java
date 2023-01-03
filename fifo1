@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<conio.h>
+void main(){
+	int a[5],b[20],p=0,q=0,m=0,h,k,i,q1=1,j,u;
+	char f='F';
+	printf("Enter numbers:");
+	for(i=0;i<12;i++)
+	scanf("%d",&b[i]);
+	printf("\nRefString          PageFrame\n");
+	for(i=0;i<12;i++){
+		if(p==0){
+			if(q>=3)
+				q=0;
+			a[q]=b[i];
+			q++;
+			if(q1<3)
+				q1=q;}
+		printf("\n%d",b[i]);
+		printf("\t");
+		for(h=0;h<q1;h++)
+			printf("\t%d",a[h]);
+		if((p==0)&&(q1==3))
+			m++;
+		p=0;
+		for(k=0;k<q-1;k++){
+			if(b[i+1]==a[k])
+				p=1;}
+	}
+	printf("\nNo of faults:%d",m);
+	getch();
+}
