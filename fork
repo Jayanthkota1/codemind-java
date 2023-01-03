@@ -1,0 +1,37 @@
+#include<unistd.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<sys/wait.h>
+int main()
+{
+	pid_t p;
+	p=fork();
+	if(p==-1)
+	{
+		printf("Fork Error");
+		exit(0);
+	}
+	else if(p==0)
+	{
+		int i;
+		printf("Child PID is %d and PPID is %d\n",getpid(),getppid());
+		for(i=1;i<6;i++)
+		{
+			printf("Child i is %d\n",i);
+		}
+		_exit(0);
+	}
+	else
+	{
+		int i;
+		printf("Parent PID is %d and PPID is %d\n",getpid(),getppid());
+		pid_t p1=wait(0);
+		printf("PID=%d child ended\n",p1);
+		for(i=1;i<6;i++)
+		{
+			printf("Parent i is %d\n",i);
+		}
+		exit(0);
+	}
+	return 0;
+}
