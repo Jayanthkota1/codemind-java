@@ -1,0 +1,20 @@
+#water jug problem
+n, m, d=map(int,input().split())
+x=n
+y=0
+while True:
+print(x,y)
+if x==d or y==d:
+break
+z=min(x,m-y)
+x-=z
+y+=z
+if x==d or y==d:
+break
+if x==0:
+print(x,y)
+x=n
+if y==m:
+print(x,y)
+y=0
+print(x,y)
