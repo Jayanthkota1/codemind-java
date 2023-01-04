@@ -1,0 +1,30 @@
+import numpy as np
+x = np.array([['Sunny', 'Warm', 'Normal', 'Strong', 'Warm', 'Same'],
+              ['Sunny', 'Warm', 'high', 'Strong', 'Warm', 'Same'],
+              ['Sunny', 'cold', 'high', 'Strong', 'Warm', 'change'],
+              ['Sunny', 'Warm', 'high', 'Strong', 'cool', 'change']
+              ])
+y = np.array(['yes','yes','no','yes'])
+for i in range(len(y)):
+    if y[i]=='yes':
+        h = x[i].copy()
+        break
+for i in range(len(x)):
+    if(y[i] == 'yes'):
+        for j in range(len(x[i])):
+            if(x[i][j] == h[j]):
+                pass
+            else:
+                h[j]='?'
+output:
+['Sunny' 'Warm' '?' 'Strong' '?' '?']
+
+
+
+
+
+
+
+
+
+
