@@ -1,0 +1,20 @@
+import pandas as pd
+data = pd.read_csv(r"C:\Users\dataset\iris.csv")
+data.info()
+data.shape
+data.describe
+x=data.iloc[:,:-1].values
+y=data.iloc[:,-1].values
+from sklearn.model_selection import train_test_split
+xtrain,xtest,ytrain,ytest=train_test_split(x,y,test_size=0.20,random_state=4)
+from sklearn.linear_model import LogisticRegression
+modellr=LogisticRegression()
+modellr.fit(xtrain,ytrain)
+ypredlr=modellr.predict(xtest)
+from sklearn.metrics import accuracy_score
+print(accuracy_score(ytest,ypredlr)*100)
+print(modellr.predict([[5.4,3,4.5,1.5]]))
+output:
+	96.66666666666667
+['Iris-versicolor']
+
