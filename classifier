@@ -1,0 +1,29 @@
+import pandas as pd 
+# iris data set is taken for this experiment
+data = pd.read_csv(r"C:\Users\datasets\iris.csv")
+#iloc - integer location
+#.values - it converts data into array or matrix
+#describing the data
+data.shape 
+data.describe()
+data.info()
+x=data.iloc[:,:-1].values
+y=data.iloc[:,-1].values
+from sklearn.model_selection import train_test_split
+xtrain,xtest,ytrain,ytest=train_test_split(x,y,test_size=0.20,random_state=4)
+from sklearn.tree import DecisionTreeClassifier
+model=DecisionTreeClassifier(criterion='entropy')
+model.fit(xtrain,ytrain)
+ypred=model.predict(xtest)
+from sklearn.metrics import accuracy_score
+print(accuracy_score(ytest,ypred)*100)
+	output:
+		96.6666
+
+
+	
+
+
+
+
+
