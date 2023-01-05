@@ -1,0 +1,19 @@
+from nltk.stem import WordNetLemmatizer
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+words = ["grows","leaves","fairly","cats","trouble","running","friendships","easily", "was", "relational","has"]
+
+lemmatizer = WordNetLemmatizer()   #an instance of Word Net Lemmatizer
+lemmatized_words = [lemmatizer.lemmatize(word) for word in words] 
+
+print("The lemmatized words: ", lemmatized_words)  #prints the lemmatized words
+
+lemmatized_words_pos = [lemmatizer.lemmatize(word, pos = "v") for word in words]
+print("The lemmatized words using a POS tag: ", lemmatized_words_pos)  #prints POS tagged lemmatized words
+
+sentence="I was wonder when I walk in Indian roads because everybody using computers to understand the language so they forgot their mother language it is natural because people are edicted to computer it is irritating me"
+token_words=nltk.word_tokenize(sentence)  #we need to tokenize the sentence or else lemmatizing will return the entire sentence as is.
+lemma_sentence=[]
+for word in token_words:
+   lemma_sentence.append(lemmatizer.lemmatize(word))
+print("The lemmatized sentence is: ", lemma_sentence)
